@@ -4,7 +4,9 @@
   "description": "Foundational JS project baseline",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel secure",
+    "secure": "nsp check",
+    "ngrok": "./ngrok http -auth='someuser:somepass' 80"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -14,13 +16,15 @@
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
     "node-sass": "^4.7.2",
+    "nsp": "^3.2.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.1",
     "webpack": "^3.11.0"
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "redux": "^4.0.0"
   },
   "author": "Cody Welsh <codyw@protonmail.com>",
   "license": "GPL-3.0"
