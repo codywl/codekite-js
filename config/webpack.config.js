@@ -14,17 +14,17 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.css$/,
+        exclude: /node_modules/,
         use: extractSass.extract({
           use: [
           {
             loader: "css-loader",
             options: {
-              modules: true,
-              importLoaders: 1,
+              importLoaders: 1
             }
           }, {
-            loader: "sass-loader"
+            loader: "postcss-loader"
           }]
         })
       },
@@ -35,7 +35,6 @@ const config = {
     ]
   },
   plugins: [
-    extractSass
   ]
 };
 
