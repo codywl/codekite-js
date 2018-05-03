@@ -1,0 +1,9 @@
+/*
+ * This gets processed by PostCSS attached to Webpack.
+ * Author: Cody Welsh
+ * License: GPL 3.0
+ */
+
+.paragraph {
+  font-size: 36px;
+};
