@@ -1,14 +1,14 @@
+// Development Webpack Configuration
 const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
-const isDev = process.env.NODE_ENV !== 'production';
-
 const extractCSS = new miniCssExtractPlugin({
-  filename: isDev ? '[name].css' : '[name].[hash].css'
+  filename: '[name].css'
 });
 
 const config = {
   mode: 'development',
   entry: './src/index.js',
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js'
@@ -24,7 +24,7 @@ const config = {
         exclude: /node_modules/,
         use: [
           {
-            loader: isDev ? "style-loader" : miniCssExtractPlugin.loader
+            loader: miniCssExtractPlugin.loader
           },
           {
             loader: "css-loader",
