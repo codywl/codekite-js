@@ -9,7 +9,8 @@
     "secure": "npm audit",
     "ngrok": "./ngrok http -auth='someuser:somepass' 80",
     "dev-srv": "webpack-dev-server --config=./config/webpack.config.js",
-    "lint": "esw webpack.config.* src"
+    "lint": "esw webpack.config.*, src",
+    "lint:watch": "npm run lint -- --watch"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
