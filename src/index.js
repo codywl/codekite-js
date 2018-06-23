@@ -6,6 +6,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from '../styles/styles.css';
 
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "Main" }]*/
+
 class Main extends React.Component {
   render() {
     return (
