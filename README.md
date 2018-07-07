@@ -25,5 +25,5 @@ configuration files;
 - [ ] Weigh and modify PostCSS steps
 - [ ] Provide examples
 - [ ] Integrate Redux
-- [ ] Add tests
+- [x] Add tests
 - [ ] Review best practices and modify as necessary
