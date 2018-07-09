@@ -17,13 +17,47 @@ configuration files;
 - A barebones React+Redux application to build from;
 - Attention paid to current recommended practices;
 - Simple `npm` scripts to run an `ngrok` server, start production
-    builds, and more
+    builds, and more (check `package.json` for full details).
+
+## Usage
+
+### Dependencies
+
+This project requires the following for full utilization:
+
+- [docker](https://www.docker.com/)
+- that's it
+
+This is, of course, assuming you wish to use the docker container for
+development. It is possible to both share your local system volume and
+see realtime changes in your application - for the best of both worlds -
+and that is the default behavior in this project.
+
+In other words, you don't even need to have `npm`, `node` or any of the
+node modules installed locally, but you can still edit source files and
+reap the full benefits of watch modes.
+
+To avoid also using `docker-compose` for this, the following flag can
+be used to bind your host volume directory of choice to the built
+container:
+
+`docker run -v "$(pwd)"/src:/app/src`
+
+The `"$(pwd)"` bit just replaces itself with the absolute path of the
+current working directory, as that is a requirement for specifying the
+bind mount. [More information](https://docs.docker.com/storage/bind-mounts/)
+
+Use `docker build --file=Dockerfile.dev` from the project root to build
+the container, and `docker run (hash goes here)` to start it. You can
+figure out what the hash is, if you've lost it, by running
+`docker-container ls --all` and looking for it.
 
 ## TODO
 - [ ] Create production Webpack configuration
-- [ ] Add optional Docker functionality
-- [ ] Weigh and modify PostCSS steps
+- [x] Add optional Docker functionality
+- [x] Weigh and modify PostCSS steps
 - [ ] Provide examples
 - [ ] Integrate Redux
 - [x] Add tests
-- [ ] Review best practices and modify as necessary
+- [x] Review best practices and modify as necessary
+- [ ] Add basic API
