@@ -6,11 +6,23 @@
 FROM phusion/baseimage:0.10.1
 CMD ["/sbin/my_init"]
 
+# Copy the project to /app in the container
 WORKDIR /app
 ADD . /app
 
+# Update sources and install Node 10.x
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 
+# Install modules from npm
+RUN npm install
+
+# This allows `runit` to manage the process our script ends up creating.
+# See the Phusion repository for more information on how this works.
+RUN mkdir /etc/service/app
+COPY docker_scripts/app.sh /etc/service/app/run
+RUN chmod +x /etc/service/app/run
+
+# Clean up the temporary files
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
