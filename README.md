@@ -52,6 +52,10 @@ the container, and `docker run (hash goes here)` to start it. You can
 figure out what the hash is, if you've lost it, by running
 `docker-container ls --all` and looking for it.
 
+If you decide to start the container with `bash` or something else,
+`runit` will not start; this is due to the fact that it must be process
+1 to function, and by invoking another command, that is not possible.
+
 ## TODO
 - [ ] Create production Webpack configuration
 - [x] Add optional Docker functionality
