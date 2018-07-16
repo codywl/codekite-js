@@ -11,7 +11,8 @@
     "dev-srv": "webpack-dev-server --config=./config/webpack.config.js",
     "lint": "esw webpack.config.*, src",
     "lint:watch": "npm run lint -- --watch",
-    "test": "ava --watch ./src/*.tests.js"
+    "test": "ava ./src/*.tests.js",
+    "test:watch": "npm test -- --watch"
   },
   "ava": {
     "babel": {
