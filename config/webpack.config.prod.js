@@ -1,4 +1,4 @@
-// Development Webpack Configuration
+// Production Webpack Configuration
 const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,7 +18,7 @@ const config = {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].bundle.js',
+    filename: '[name].[hash].bundle.js',
     publicPath: './'
   },
   module: {
