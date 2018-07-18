@@ -12,7 +12,10 @@
     "lint": "esw webpack.config.*, src",
     "lint:watch": "npm run lint -- --watch",
     "test": "ava ./src/*.tests.js",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "gen-mockapi-data": "node ./src/api/generateMockData.js",
+    "prestart-mockapi": "npm run gen-mockapi-data",
+    "start-mockapi": "json-server --watch ./src/api/db.json --port 3001"
   },
   "ava": {
     "babel": {
@@ -34,7 +37,10 @@
     "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.12.0",
     "eslint-watch": "^3.1.5",
+    "faker": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "json-schema-faker": "^0.5.0-rc15",
+    "json-server": "^0.14.0",
     "mini-css-extract-plugin": "^0.4.0",
     "npm-run-all": "^4.1.2",
     "postcss-cssnext": "^3.1.0",
