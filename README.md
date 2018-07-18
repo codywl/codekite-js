@@ -47,9 +47,9 @@ The `"$(pwd)"` bit just replaces itself with the absolute path of the
 current working directory, as that is a requirement for specifying the
 bind mount. [More information](https://docs.docker.com/storage/bind-mounts/)
 
-Use `docker build --file=Dockerfile.dev` from the project root to build
-the container, and `docker run (hash goes here)` to start it. You can
-figure out what the hash is, if you've lost it, by running
+Use `docker build -t codekite-app -f=Dockerfile.dev` from the project
+root to build the container, and `docker run (hash goes here)` to start
+it. You can figure out what the hash is, if you've lost it, by running
 `docker-container ls --all` and looking for it.
 
 If you decide to start the container with `bash` or something else,

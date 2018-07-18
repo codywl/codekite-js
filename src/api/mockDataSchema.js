@@ -1,4 +1,4 @@
-schema = {
+const schema = {
   "type": "object",
   "properties": {
     "users": {
