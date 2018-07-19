@@ -1,9 +1,5 @@
 // Development Webpack Configuration
 const path = require('path');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
-const extractCSS = new miniCssExtractPlugin({
-  filename: '[name].css'
-});
 
 const config = {
   mode: 'development',
@@ -25,9 +21,6 @@ const config = {
         exclude: /node_modules/,
         use: [
           {
-            loader: miniCssExtractPlugin.loader
-          },
-          {
             loader: "css-loader",
             options: {
               modules: true,
@@ -42,10 +35,7 @@ const config = {
         exclude: /node_modules/,
         loader: "babel-loader"
       }],
-  },
-  plugins: [
-    extractCSS
-  ]
+  }
 }
 
 module.exports = config;

@@ -1,8 +1,11 @@
 // Polyfill for Fetch API until supported everywhere
 import 'whatwg-fetch';
+import getBaseUrl from './getBaseUrl';
+
+const baseUrl = getBaseUrl();
 
 const get = function(url) {
-  return fetch(url).then(onSuccess, onError);
+  return fetch(baseUrl + url).then(onSuccess, onError);
 };
 
 const onSuccess = function(res) {
