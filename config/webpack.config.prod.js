@@ -2,20 +2,26 @@
 const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+// External CSS
 const extractCSS = new miniCssExtractPlugin({
-  filename: '[name].css'
+  filename: '[name].[hash].css'
 });
 
+// Injects script tags pointing to bundle
 const HtmlWebpack = new HtmlWebpackPlugin({
   title: 'Codekite Demo',
-  template: path.resolve(__dirname, '../dist/index.tmpl.html')
+  template: path.resolve(__dirname, '../src/html/index.tmpl.html')
 });
 
+// Cleans up generated bundles
+const CleanWebpack = new CleanWebpackPlugin(['../dist'], {allowExternal: true});
+
 const config = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].bundle.js',
@@ -48,7 +54,8 @@ const config = {
   },
   plugins: [
     extractCSS,
-    HtmlWebpack
+    HtmlWebpack,
+    CleanWebpack
   ]
 }
 

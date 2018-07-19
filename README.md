@@ -57,11 +57,13 @@ If you decide to start the container with `bash` or something else,
 1 to function, and by invoking another command, that is not possible.
 
 ## TODO
-- [ ] Create production Webpack configuration
+- [x] Create production Webpack configuration
 - [x] Add optional Docker functionality
 - [x] Weigh and modify PostCSS steps
 - [ ] Provide examples
-- [ ] Integrate Redux
 - [x] Add tests
 - [x] Review best practices and modify as necessary
 - [ ] Add basic API
+
+(Redux was in this list before, but I now believe it should be evaluated
+per-project for its usage.)

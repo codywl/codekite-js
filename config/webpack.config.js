@@ -6,8 +6,8 @@ const config = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '../src'),
+    filename: '[main].bundle.js'
   },
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
