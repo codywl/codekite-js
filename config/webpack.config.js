@@ -1,13 +1,8 @@
 // Development Webpack Configuration
 const path = require('path');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-// External CSS
-const extractCSS = new miniCssExtractPlugin({
-  filename: '[name].css'
-});
+const webpack = require('webpack');
 
 // Injects script tags pointing to bundle
 const HtmlWebpack = new HtmlWebpackPlugin({
@@ -29,12 +24,13 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     host: "0.0.0.0",
-    port: 9000
+    port: 9000,
+    hot: true
   },
   plugins: [
-    extractCSS,
     CleanWebpack,
-    HtmlWebpack
+    HtmlWebpack,
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
@@ -43,7 +39,7 @@ const config = {
         exclude: /node_modules/,
         use: [
           {
-            loader: miniCssExtractPlugin.loader
+            loader: "style-loader"
           },
           {
             loader: "css-loader",
