@@ -1,0 +1,15 @@
+{
+  "libs": [
+    "browser",
+    "react",
+    "ecmascript"
+  ],
+  "plugins": {
+    "node_resolve": {},
+    "modules": {},
+    "es-modules": {},
+    "webpack": {
+      "configPath": "./config/webpack.config.js"
+    }
+  }
+}
