@@ -25,7 +25,8 @@ const config = {
     contentBase: path.join(__dirname, '../dist'),
     host: "0.0.0.0",
     port: 9000,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     CleanWebpack,
