@@ -5,37 +5,37 @@
 // For example:
 // src/cool.js
 // src/cool.tests.js
+
+// I've chosen AVA and Enzyme here, but there are many other
+// combinations of tools to choose from.
 import test from 'ava';
 import React from 'react';
-import PropTypes from 'prop-types';
-import shallow from 'enzyme';
+import { shallow, mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-const Foo = ({children}) => (
-	<div className="Foo">
-		<span className="bar">bar</span>
-		{children}
-		<span className="bar">bar</span>
-	</div>);
+// In this context, you can't use the terse JSX syntax. You need to use
+// either a class or a function, or you will have failed tests.
+const Foo = () => (
+  <div className="foo-inner">
+    <p>Test Div</p>
+  </div>
+);
 
-Foo.propTypes = {
-	children: PropTypes.any
-};
+// An adapter allows Enzyme to understand tests written for React or
+// other frameworks.
+configure({ adapter: new Adapter() });
 
-test('has a .Foo class name', t => {
-	const wrapper = shallow(<Foo/>);
-	t.true(wrapper.hasClass('Foo'));
+// Shallow tests do not emulate a browser.
+test('shallow', (t) => {
+  const wrapper = shallow(<Foo />);
+  t.is(wrapper.contains(<p>Test Div</p>), true);
 });
 
-test('renders two `.Bar`', t => {
-	const wrapper = shallow(<Foo/>);
-	t.is(wrapper.find('.bar').length, 2);
-});
-
-test('renders children when passed in', t => {
-	const wrapper = shallow(
-		<Foo>
-			<div className="unique"/>
-		</Foo>
-	);
-	t.true(wrapper.contains(<div className="unique"/>));
+// Mounted tests simulate a browser via JSDOM.
+// You can also choose another library to simulate the browser, but
+// you'll have to set it up yourself.
+test('mount', (t) => {
+  const wrapper = mount(<Foo />);
+  const fooInner = wrapper.find('.foo-inner');
+  t.is(fooInner.is('.foo-inner'), true);
 });
