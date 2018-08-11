@@ -37,7 +37,9 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, '../src/styles')
+        ],
         use: [
           {
             loader: "style-loader"
@@ -53,8 +55,10 @@ const config = {
           }],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\b(?!test)(\w+)(?!test)(.js)\b/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         loader: "babel-loader"
       }],
   }
