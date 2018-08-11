@@ -1,13 +1,12 @@
 {
+  "ecmaVersion": 6,
   "libs": [
-    "browser",
-    "react",
-    "ecmascript"
+    "browser"
   ],
   "plugins": {
     "node_resolve": {},
     "modules": {},
-    "es-modules": {},
+    "es_modules": {},
     "webpack": {
       "configPath": "./config/webpack.config.js"
     }
