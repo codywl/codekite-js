@@ -3,15 +3,21 @@
 // License: GPL 3.0
 
 import React from 'react';
-import PageHome from './home/Home';
+import { Route } from 'react-router-dom';
 import Nav from './navigation/Navigation.js';
+import PageHome from './home/Home';
+import PageAbout from './about/About';
+import Users from './users/Users';
+import styles from '../styles/styles.css';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="PanesContainer">
+      <div className={styles.PanesContainer}>
         <Nav/>
-        <PageHome/>
+        <Route exact path="/" component={PageHome}/>
+        <Route path="/about" component={PageAbout}/>
+        <Route path="/users" component={Users}/>
       </div>
     )
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../../styles/styles.css';
 
-const links = [
+const routes = [
   {
     path: '/',
     exact: true,
@@ -19,10 +20,13 @@ const links = [
 
 const Nav = () => {
   return (
-    <div className="Links">
-      {links.map((link) => (
-        <Link to={link.path}>
-          {link.title}
+    <div className={styles.Links}>
+      {routes.map((route, idx) => (
+        <Link
+          key={idx}
+          to={route.path}
+          className={styles.Links__link}>
+          {route.title}
         </Link>
       ))}
     </div>
@@ -30,3 +34,4 @@ const Nav = () => {
 };
 
 export default Nav;
+export { routes as navRoutes };
