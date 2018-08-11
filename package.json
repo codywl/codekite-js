@@ -14,6 +14,7 @@
     "lint:watch": "npm run lint -- --watch",
     "test": "ava ./src/*.test.js ./src/components/**/*.test.js",
     "test:watch": "npm test -- --watch",
+    "test:cachebust": "ava --reset-cache",
     "gen-mockapi-data": "node ./src/api/generateMockData.js",
     "prestart-mockapi": "npm run gen-mockapi-data",
     "start-mockapi": "json-server --watch ./src/api/db.json --port 3001"
@@ -21,12 +22,17 @@
   "ava": {
     "babel": {
       "testOptions": {
-        "presets": ["@babel/preset-env", "@babel/preset-react"],
-        "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ],
+        "plugins": [
+          "@babel/plugin-syntax-jsx"
+        ]
       }
     },
     "require": [
-      "./src/testsetup.js"
+      "@babel/register"
     ]
   },
   "devDependencies": {
@@ -57,6 +63,7 @@
     "npm-run-all": "^4.1.2",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
+    "postcss-initial": "^2.0.0",
     "postcss-loader": "^2.1.6",
     "prop-types": "^15.6.2",
     "react-css-modules": "^4.7.4",
@@ -68,6 +75,7 @@
     "webpack-serve": "^2.0.2"
   },
   "dependencies": {
+    "@babel/register": "^7.0.0-beta.56",
     "ajv-keywords": "^3.2.0",
     "hoek": "^5.0.3",
     "react": "^16.4.1",
