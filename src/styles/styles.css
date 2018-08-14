@@ -4,11 +4,6 @@
  * License: GPL 3.0
  */
 
-/* CSS Reset via `postcss-initial`*/
-:global body {
-  all: initial;
-}
-
 .Root {
   display: flex;
   flex-direction: column;
@@ -36,4 +31,8 @@
   text-decoration: none;
   color: #4ecdc4;
   margin-right: 2em;
+}
+
+.Links__link--active {
+  font-weight: bold
 }

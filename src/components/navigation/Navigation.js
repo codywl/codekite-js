@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from '../../styles/styles.css';
 
 const routes = [
@@ -22,12 +22,13 @@ const Nav = () => {
   return (
     <div className={styles.Links}>
       {routes.map((route, idx) => (
-        <Link
+        <NavLink
           key={idx}
           to={route.path}
-          className={styles.Links__link}>
+          className={styles.Links__link}
+          activeClassName={styles['Links__link--active']}>
           {route.title}
-        </Link>
+        </NavLink>
       ))}
     </div>
   );
