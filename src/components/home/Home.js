@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-class PageHome extends React.Component {
+class PaneHome extends React.Component {
   render() {
     return (
       <div className="Pane__Home">
@@ -13,4 +13,4 @@ class PageHome extends React.Component {
   }
 }
 
-export default PageHome;
+export default PaneHome;

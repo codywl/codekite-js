@@ -4,9 +4,10 @@
 
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import Nav from './navigation/Navigation.js';
-import PageHome from './home/Home';
-import PageAbout from './about/About';
+import PaneHome from './home/Home';
+import PaneAbout from './about/About';
 import Users from './users/Users';
 import styles from '../styles/styles.css';
 
@@ -15,12 +16,12 @@ class App extends React.Component {
     return (
       <div className={styles.PanesContainer}>
         <Nav/>
-        <Route exact path="/" component={PageHome}/>
-        <Route path="/about" component={PageAbout}/>
+        <Route exact path="/" component={PaneHome}/>
+        <Route path="/about" component={PaneAbout}/>
         <Route path="/users" component={Users}/>
       </div>
     )
   }
 }
 
-export default App;
+export default hot(module)(App);
