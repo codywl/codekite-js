@@ -2,10 +2,9 @@
 // Author: Cody Welsh
 // License: GPL 3.0
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import getUsers from '../../api/userApi';
-//import styles from '../styles/styles.css';
+import React from "react";
+import getUsers from "../../api/userApi";
+import UsersList from "./UsersList";
 
 class Users extends React.Component {
   constructor(props) {
@@ -17,7 +16,9 @@ class Users extends React.Component {
   }
 
   getUserList() {
-    getUsers().then((res) => { this.setState({users: res}); });
+    getUsers().then(res => {
+      this.setState({ users: res });
+    });
   }
 
   componentDidMount() {
@@ -25,24 +26,8 @@ class Users extends React.Component {
   }
 
   render() {
-    let users = this.state.users;
-    const usersList = users.map((user) =>
-      <ul key={user.id}>
-        <li>{user.firstName} {user.lastName}</li>
-        <li>{user.email}</li>
-      </ul>
-    );
-    return (
-      <div className="Users">
-        {usersList}
-      </div>
-    )
-
+    return <UsersList users={this.state.users} />;
   }
 }
-
-Users.propTypes = {
-  users: PropTypes.array
-};
 
 export default Users;

@@ -4,7 +4,28 @@
  * License: GPL 3.0
  */
 
-.Root {
+/* A few resets */
+html {
+  background: #333;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+a {
+  background-color: transparent;
+}
+
+/* React attaches to this element. */
+.root {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,26 +34,38 @@
   width: 100vw;
 }
 
-.PanesContainer {
+.panes {
+  font-family: 'Roboto Slab', sans-serif;
+  color: #4ecdc4;
   background-color: #556270;
+  border-top: 8px solid #4ecdc4;
+  border-radius: 2px;
   width: 500px;
   height: 500px;
   padding: 2em;
 }
 
-.Links {
+.user {
+  list-style: none;
+  padding: 1em;
+  background: #4ecdc4;
+  color: #333;
+}
+
+/* A collection of nav links */
+.nav {
   padding-bottom: 1em;
   border-bottom: 2px solid #4ecdc4;
 }
 
-.Links__link {
-  font-family: 'Roboto Slab', sans-serif;
+.nav__link {
+  color: #4ecdc4;
   font-size: 14px;
   text-decoration: none;
-  color: #4ecdc4;
-  margin-right: 2em;
+  margin-right: 24px;
+  outline: none;
 }
 
-.Links__link--active {
-  font-weight: bold
+.nav__link--active {
+  font-weight: bold;
 }
