@@ -24,25 +24,37 @@ a {
   background-color: transparent;
 }
 
-/* React attaches to this element. */
-.root {
+/* React attaches to this element.
+ * If you want to specify an element in the global scope, use
+ * the :global selector (as in `:global(#root))`.
+ */
+body > div:first-of-type {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  padding: 32px 0;
 }
 
 .panes {
   font-family: 'Roboto Slab', sans-serif;
   color: #4ecdc4;
   background-color: #556270;
+  background-image: url('codekite-logo.svg');
   border-top: 8px solid #4ecdc4;
   border-radius: 2px;
   width: 500px;
   height: 500px;
   padding: 2em;
+}
+
+.panes__content:empty::after {
+  content: "Loading...";
+  padding: 2em;
+}
+
+.panes__paragraph {
+  margin-bottom: 24px;
 }
 
 .user {
