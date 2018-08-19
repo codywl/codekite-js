@@ -2,12 +2,15 @@
 // Author: Cody Welsh
 // License: GPL 3.0
 
-import React from 'react';
+import React from "react";
+import styles from "../../styles/styles.css";
 
 class PaneHome extends React.Component {
   render() {
     return (
-      <div className="Pane__Home">
+      <div className={styles["panes__content"]}>
+        <h1>Home Pane</h1>
+        <p>This is the home pane; it&apos;s contained in Home.js.</p>
       </div>
     );
   }
