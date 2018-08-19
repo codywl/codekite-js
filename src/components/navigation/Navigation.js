@@ -4,8 +4,7 @@ import styles from '../../styles/styles.css';
 
 const routes = [
   {
-    path: '/',
-    exact: true,
+    path: '/home',
     title: 'Home'
   },
   {
@@ -20,13 +19,13 @@ const routes = [
 
 const Nav = () => {
   return (
-    <div className={styles.Links}>
+    <div className={styles.nav}>
       {routes.map((route, idx) => (
         <NavLink
           key={idx}
           to={route.path}
-          className={styles.Links__link}
-          activeClassName={styles['Links__link--active']}>
+          className={styles.nav__link}
+          activeClassName={styles['nav__link--active']}>
           {route.title}
         </NavLink>
       ))}

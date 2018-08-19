@@ -5,6 +5,7 @@
 import React from "react";
 import getUsers from "../../api/userApi";
 import UsersList from "./UsersList";
+import styles from "../../styles/styles.css";
 
 class Users extends React.Component {
   constructor(props) {
@@ -26,7 +27,12 @@ class Users extends React.Component {
   }
 
   render() {
-    return <UsersList users={this.state.users} />;
+    return (
+      <UsersList
+        className={styles["panes__content"]}
+        users={this.state.users}
+      />
+    );
   }
 }
 

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "../../styles/styles.css";
 
 const UsersList = ({ users }) => {
-  return users.length
+  let mappedUsers = users.length
     ? users.map(user => (
         <ul className={styles.user} key={user.id}>
           <li>
@@ -14,6 +14,16 @@ const UsersList = ({ users }) => {
         </ul>
       ))
     : null;
+
+  return (
+    <div>
+      <p className={styles["panes__paragraph"]}>
+        This is a list of generated users, which live in `db.json`; They are
+        served by `json-server` asynchronously.
+      </p>
+      {mappedUsers}
+    </div>
+  );
 };
 
 UsersList.propTypes = {

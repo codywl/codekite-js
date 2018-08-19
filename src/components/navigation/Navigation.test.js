@@ -12,8 +12,8 @@ configure({ adapter: new Adapter() });
 
 test('has links container', (t) => {
   const wrapper = shallow(<Nav/>);
-  const links = wrapper.find('div.Links');
-  t.is(links.is('.Links'), true);
+  const links = wrapper.find('div.Nav');
+  t.is(links.is('.Nav'), true);
 });
 
 test('has same number of links as supplied routes', (t) => {
