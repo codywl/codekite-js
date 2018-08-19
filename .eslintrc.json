@@ -1,7 +1,8 @@
 {
   "root": true,
   "plugins": [
-    "ava"
+    "ava",
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
@@ -23,6 +24,6 @@
     "es6": true
   },
   "rules": {
-    "no-console": 1
+    "prettier/prettier": "error"
   }
 }
