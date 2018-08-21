@@ -40,7 +40,6 @@ body > div:first-of-type {
   font-family: 'Roboto Slab', sans-serif;
   color: #4ecdc4;
   background-color: #556270;
-  background-image: url('codekite-logo.svg');
   border-top: 8px solid #4ecdc4;
   border-radius: 2px;
   width: 500px;
@@ -64,20 +63,3 @@ body > div:first-of-type {
   color: #333;
 }
 
-/* A collection of nav links */
-.nav {
-  padding-bottom: 1em;
-  border-bottom: 2px solid #4ecdc4;
-}
-
-.nav__link {
-  color: #4ecdc4;
-  font-size: 14px;
-  text-decoration: none;
-  margin-right: 24px;
-  outline: none;
-}
-
-.nav__link--active {
-  font-weight: bold;
-}

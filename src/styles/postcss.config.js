@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
-    'postcss-initial': {},
-    'cssnano': {},
-    'autoprefixer': {}
+    "postcss-initial": {},
+    cssnano: {},
+    autoprefixer: {}
   }
 };
