@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import { hot } from "react-hot-loader";
 
 // Components
-import Nav from "./navigation/Navigation.js";
+import NavigationContainer from "./navigation/NavigationContainer.js";
 import PaneHome from "./home/Home";
 import PaneAbout from "./about/About";
 import Users from "./users/Users";
@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles["panes"]}>
-        <Nav />
+        <NavigationContainer />
         <Switch>
           <Route path="/home" component={PaneHome} />
           <Route path="/about" component={PaneAbout} />

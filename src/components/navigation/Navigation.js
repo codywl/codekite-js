@@ -1,5 +1,6 @@
 // This component renders the navigation links above the content panes.
 import React from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 // After a lot of research and "consultation" (see: asking other
@@ -7,24 +8,6 @@ import { NavLink } from "react-router-dom";
 // the previous workflow of `css-modules`.
 import styled from "styled-components";
 import Logo from "../../styles/images/codekite-logo.svg";
-
-// Feel free to extract this array into a seperate component.  The first
-// { route.path } in this array is used in the render method to specify
-// the logo's link.
-const routes = [
-  {
-    path: "/home",
-    title: "Home"
-  },
-  {
-    path: "/about",
-    title: "About"
-  },
-  {
-    path: "/users",
-    title: "Users"
-  }
-];
 
 // Contains the other elements.
 const StyledNav = styled.ul`
@@ -63,12 +46,12 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const Nav = () => {
+const Nav = props => {
   return (
     <StyledNav>
-      <NavIcon to={routes[0].path} />
+      <NavIcon to={props.routes[0]} />
       <div>
-        {routes.map((route, idx) => (
+        {props.routes.map((route, idx) => (
           <StyledNavLink key={idx} to={route.path}>
             {route.title}
           </StyledNavLink>
@@ -78,5 +61,8 @@ const Nav = () => {
   );
 };
 
+Nav.propTypes = {
+  routes: PropTypes.array
+};
+
 export default Nav;
-export { routes as navRoutes };
