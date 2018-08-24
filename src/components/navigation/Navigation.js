@@ -1,7 +1,16 @@
+// This component renders the navigation links above the content panes.
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Navigation.styles.css";
 
+// After a lot of research and "consultation" (see: asking other
+// developers), I've arrived at `styled-components` as a replacement for
+// the previous workflow of `css-modules`.
+import styled from "styled-components";
+import Logo from "../../styles/images/codekite-logo.svg";
+
+// Feel free to extract this array into a seperate component.  The first
+// { route.path } in this array is used in the render method to specify
+// the logo's link.
 const routes = [
   {
     path: "/home",
@@ -17,23 +26,55 @@ const routes = [
   }
 ];
 
+// Contains the other elements.
+const StyledNav = styled.ul`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #4ecdc4;
+`;
+
+// This is just the logo, which also functions as an additional home
+// pane link.
+const NavIcon = styled(NavLink)`
+  width: 100px;
+  height: 28px;
+  background-image: url(${Logo});
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: none;
+  @media screen and (max-width: 350px) {
+    .nav__icon {
+      margin-bottom: 1em;
+    }
+  }
+`;
+
+// Styles wrapping `NavLink`s in the `ul`
+const StyledNavLink = styled(NavLink)`
+  color: #4ecdc4;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 24px;
+  outline: none;
+  &.active {
+    font-weight: bold;
+  }
+`;
+
 const Nav = () => {
   return (
-    <div className={styles.nav}>
-      <NavLink to={routes[0].path} className={styles["nav__icon"]} />
-      <div className={styles["nav__linkslist"]}>
+    <StyledNav>
+      <NavIcon to={routes[0].path} />
+      <div>
         {routes.map((route, idx) => (
-          <NavLink
-            key={idx}
-            to={route.path}
-            className={styles.nav__link}
-            activeClassName={styles["nav__link--active"]}
-          >
+          <StyledNavLink key={idx} to={route.path}>
             {route.title}
-          </NavLink>
+          </StyledNavLink>
         ))}
       </div>
-    </div>
+    </StyledNav>
   );
 };
 
