@@ -1,21 +1,20 @@
-// Polyfill for Fetch API until supported everywhere
-import 'whatwg-fetch';
-import getBaseUrl from './getBaseUrl';
+import axios from "axios";
+import getBaseUrl from "./getBaseUrl";
 
 const baseUrl = getBaseUrl();
 
-const get = function(url) {
-  return fetch(baseUrl + url).then(onSuccess, onError);
+const get = async url => {
+  try {
+    const res = await axios.get(baseUrl + url);
+    localStorage.setItem("users", JSON.stringify(res.data.toString()));
+    return res.data;
+  } catch (err) {
+    console.log(err); // eslint-disable-line no-console
+  }
 };
 
-const onSuccess = function(res) {
-  return res.json();
+const getUsers = () => {
+  return get("users");
 };
 
-const onError = function(err) {
-  console.log(err); // eslint-disable-line no-console
-};
-
-export default function getUsers() {
-  return get('users');
-}
+export default getUsers;

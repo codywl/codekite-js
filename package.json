@@ -43,6 +43,7 @@
     "@babel/preset-react": "^7.0.0-beta.54",
     "ajv": "^6.5.2",
     "ava": "1.0.0-beta.6",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.0-beta.4",
     "babel-plugin-styled-components": "^1.5.1",
     "clean-webpack-plugin": "^0.1.19",
