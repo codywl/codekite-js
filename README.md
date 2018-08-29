@@ -30,7 +30,10 @@ configuration files;
 - [AVA](https://github.com/avajs/ava) and [Enzyme](https://github.com/airbnb/enzyme/) for testing;
 - [styled-components](https://github.com/styled-components/styled-components) for styling;
 - Optional Docker container focused development environment;
--
+- Simple, stateless functional components used where possible;
+- Automatic linting (`ESLint`), code style adherence (`prettier`), editor
+    configuration (`.editorconfig`), and code completion (`TernJS`).
+
 ## Usage
 
 ### Dependencies
