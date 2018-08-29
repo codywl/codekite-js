@@ -1,24 +1,36 @@
+![Codekite Logo](https://github.com/CWelshE/codekite-js/blob/master/src/styles/images/codekite-logo.svg)
+
 # Codekite JS Boilerplate
 ## What is this?
-This is sort of like `create-react-app`, but with much simpler
-decisions that I feel can help you learn about underlying technologies.
+Unsatisfied by the "magic" under the hood of `create-react-app`, I set
+out to understand and utilize most of the technologies that are hidden
+by default. From my point of view, this has the following benefits (and
+more, but I think these ones are important):
 
-I was bothered by using boilerplate/starter kits that I didn't
-understand - due to things like obscuring underlying code by default -
-so this is an attempt to create a simpler, more readable project that
+- Increased intuition when fixing configuration-related issues;
+- Greater flexibility and modularity in choosing not to be a "one size
+    fits all" solution;
+- More confidence in one's own knowledge of their tech stack (by
+    directly interacting with each individual part of said stack);
+- Fuel for more future endeavors where a given engineer decides to delve
+    more deeply into the tools and technologies they use.
+
+This is an attempt to create a simpler, more readable project that
 hopefully both myself and others can enjoy.
 
 ## Features
 
-- Webkit, Webkit Dev Server and HMR (Hot Module Reloading);
+- Webpack, Webpack Dev Server and HMR (Hot Module Reloading);
 - Inline source maps, separate development and production Webkit
 configuration files;
-- PostCSS with `autoprefixer`, `css-modules`, and `cssnano`;
-- A barebones React+Redux application to build from;
+- A barebones React-only application to build from;
 - Attention paid to current recommended practices;
 - Simple `npm` scripts to run an `ngrok` server, start production
-    builds, and more (check `package.json` for full details).
-
+    builds, and more (check `package.json` for full details);
+- [AVA](https://github.com/avajs/ava) and [Enzyme](https://github.com/airbnb/enzyme/) for testing;
+- [styled-components](https://github.com/styled-components/styled-components) for styling;
+- Optional Docker container focused development environment;
+-
 ## Usage
 
 ### Dependencies
@@ -56,14 +68,23 @@ If you decide to start the container with `bash` or something else,
 `runit` will not start; this is due to the fact that it must be process
 1 to function, and by invoking another command, that is not possible.
 
-## TODO
-- [x] Create production Webpack configuration
-- [x] Add optional Docker functionality
-- [x] Weigh and modify PostCSS steps
-- [ ] Provide examples
-- [x] Add tests
-- [x] Review best practices and modify as necessary
-- [ ] Add basic API
+### Developing
 
-(Redux was in this list before, but I now believe it should be evaluated
-per-project for its usage.)
+In your environment of choice - whether it be the Docker container or
+your own system - running `npm start` will perform a number of
+operations to get you going:
+
+- `npm audit` to check for security issues in packages;
+- `webpack-dev-server` for viewing your project locally;
+- `esw` to lint your source files according to `.eslintrc.json`;
+- `json-server` to serve the mock API on port 3001.
+
+After starting, you can visit `localhost:9000` to verify the project is
+being hosted properly.
+
+If all is well, try editing some React components in `src/components` to
+see realtime changes in your app. Magic! If you find that this isn't
+happening, however, spend some time reading the [React Hot
+Loader](https://github.com/gaearon/react-hot-loader) docs. If you're
+still stuck, create an issue in this repository, and I will try my best
+to help you become unstuck.
