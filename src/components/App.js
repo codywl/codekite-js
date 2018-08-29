@@ -14,13 +14,23 @@ import PaneAbout from "./about/About";
 import Users from "./users/Users";
 import PaneDefault from "./default/Default";
 
-// Styles
-import styles from "../styles/styles.css";
+// For App wrapper div styles
+import styled from "styled-components";
+const AppWrapper = styled.div`
+  font-family: "Roboto Slab", sans-serif;
+  color: #4ecdc4;
+  background-color: #444;
+  border-top: 4px solid #565656;
+  border-bottom: 4px solid #222;
+  border-radius: 2px;
+  width: 500px;
+  padding: 2em;
+`;
 
 class App extends React.Component {
   render() {
     return (
-      <div className={styles["panes"]}>
+      <AppWrapper>
         <NavigationContainer />
         <Switch>
           <Route path="/home" component={PaneHome} />
@@ -28,7 +38,7 @@ class App extends React.Component {
           <Route path="/users" component={Users} />
           <Route component={PaneDefault} />
         </Switch>
-      </div>
+      </AppWrapper>
     );
   }
 }

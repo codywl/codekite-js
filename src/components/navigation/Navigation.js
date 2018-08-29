@@ -49,7 +49,7 @@ const StyledNavLink = styled(NavLink)`
 const Nav = props => {
   return (
     <StyledNav>
-      <NavIcon to={props.routes[0]} />
+      <NavIcon to={props.routes[0].path} />
       <div>
         {props.routes.map((route, idx) => (
           <StyledNavLink key={idx} to={route.path}>

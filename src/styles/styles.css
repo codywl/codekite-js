@@ -1,5 +1,6 @@
 /*
- * This gets processed by PostCSS attached to Webpack.
+ * This file contains any globals that are (absolutely) necessary. Put
+ * everything else in components, via `styled-components`.
  * Author: Cody Welsh
  * License: GPL 3.0
  */
@@ -9,6 +10,10 @@ html {
   background: #333;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+}
+
+ul {
+  padding: 0;
 }
 
 body {
@@ -24,42 +29,11 @@ a {
   background-color: transparent;
 }
 
-/* React attaches to this element.
- * If you want to specify an element in the global scope, use
- * the :global selector (as in `:global(#root))`.
- */
-body > div:first-of-type {
+/* React attaches to this element. */
+#root {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 32px 0;
 }
-
-.panes {
-  font-family: 'Roboto Slab', sans-serif;
-  color: #4ecdc4;
-  background-color: #556270;
-  border-top: 8px solid #4ecdc4;
-  border-radius: 2px;
-  width: 500px;
-  height: 500px;
-  padding: 2em;
-}
-
-.panes__content:empty::after {
-  content: "Loading...";
-  padding: 2em;
-}
-
-.panes__paragraph {
-  margin-bottom: 24px;
-}
-
-.user {
-  list-style: none;
-  padding: 1em;
-  background: #4ecdc4;
-  color: #333;
-}
-
