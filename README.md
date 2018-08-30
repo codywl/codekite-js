@@ -1,4 +1,5 @@
 ![Codekite Logo](https://github.com/CWelshE/codekite-js/blob/master/src/styles/images/codekite-logo.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Codekite JS Boilerplate
 ## What is this?
@@ -21,7 +22,7 @@ hopefully both myself and others can enjoy.
 ## Features
 
 - Webpack, Webpack Dev Server and HMR (Hot Module Reloading);
-- Inline source maps, separate development and production Webkit
+- Inline source maps, separate development and production Webpack
 configuration files;
 - A barebones React-only application to build from;
 - Attention paid to current recommended practices;
