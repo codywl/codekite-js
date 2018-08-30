@@ -1,15 +1,15 @@
 {
   "root": true,
   "plugins": [
-    "ava",
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:react/recommended",
-    "plugin:ava/recommended"
+    "plugin:jest/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -21,7 +21,8 @@
   "env": {
     "node": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "rules": {
     "prettier/prettier": "error"

@@ -1,17 +1,23 @@
 // Author: Cody Welsh
 // License: GPL 3.0
 
-import test from "ava";
 import React from "react";
-import { shallow, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import renderer from "react-test-renderer";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Nav from "./Navigation";
+import NavigationContainer from "./NavigationContainer";
 
-configure({ adapter: new Adapter() });
+const NavComp = () => {
+  return (
+    <Router>
+      <NavigationContainer />
+    </Router>
+  );
+};
 
-test("has links container", t => {
-  const wrapper = shallow(<Nav />);
-  const links = wrapper.find("div.Nav");
-  t.is(links.is(".Nav"), true);
+test("renders without errors", () => {
+  const component = renderer.create(<NavComp />);
+  let tree = component.toJSON();
+
+  expect(tree).toMatchSnapshot();
 });
