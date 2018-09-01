@@ -28,7 +28,7 @@ configuration files;
 - Attention paid to current recommended practices;
 - Simple `npm` scripts to run an `ngrok` server, start production
     builds, and more (check `package.json` for full details);
-- [AVA](https://github.com/avajs/ava) and [Enzyme](https://github.com/airbnb/enzyme/) for testing;
+- [Jest](https://jestjs.io/) and [Enzyme](https://github.com/airbnb/enzyme/) for testing;
 - [styled-components](https://github.com/styled-components/styled-components) for styling;
 - Optional Docker container focused development environment;
 - Simple, stateless functional components used where possible;
