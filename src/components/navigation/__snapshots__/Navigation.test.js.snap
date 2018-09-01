@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without errors 1`] = `
+<ul
+  className="Navigation__StyledNav-JtFIe fPtGrH"
+>
+  <a
+    aria-current={null}
+    className="Navigation__NavIcon-hVYKSJ bAHkMy"
+    href="/home"
+    onClick={[Function]}
+  />
+  <div>
+    <a
+      aria-current={null}
+      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      href="/home"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+    <a
+      aria-current={null}
+      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      href="/about"
+      onClick={[Function]}
+    >
+      About
+    </a>
+    <a
+      aria-current={null}
+      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      href="/users"
+      onClick={[Function]}
+    >
+      Users
+    </a>
+  </div>
+</ul>
+`;
