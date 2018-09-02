@@ -3,6 +3,7 @@
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
     "react-hot-loader/babel",
-    "babel-plugin-styled-components"
+    "babel-plugin-styled-components",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }
