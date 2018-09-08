@@ -1,16 +1,16 @@
 // Presentation UsersList Component
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled from "react-emotion";
 
-const User = styled.ul`
+const User = styled("ul")`
   list-style: none;
   padding: 1em;
   background: #4ecdc4;
   color: #333;
 `;
 
-const IntroParagraph = styled.p`
+const IntroParagraph = styled("p")`
   margin-bottom: 24px;
   &:empty::after {
     content: "Loading...";

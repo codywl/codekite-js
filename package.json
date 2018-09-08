@@ -80,13 +80,15 @@
   "dependencies": {
     "@babel/register": "^7.0.0-beta.56",
     "ajv-keywords": "^3.2.0",
+    "babel-plugin-emotion": "^9.2.8",
+    "emotion": "^9.2.8",
     "hoek": "^5.0.3",
     "prettier": "^1.14.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.8",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0",
-    "styled-components": "^3.4.4"
+    "redux": "^4.0.0"
   },
   "author": "Cody Welsh <codyw@protonmail.com>",
   "license": "GPL-3.0"
