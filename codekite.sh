@@ -21,10 +21,19 @@ cp $(dirname $(readlink -f $0)) ./$1 -r
 echo "3 - Switching to project directory.."
 cd ./$1
 
-# cp . -rf $project
 # Download latest `ngrok` to the folder
 echo "4 - Downloading 'ngrok'.."
 curl $NGROK_URL > ngrok
 
+echo "5 - installing 'npm' packages.."
+npm install
+
 # Vanity message
-echo "Done. To start, run 'npm start' or 'docker build . && docker run . '."
+echo "\n
+--------|--------|--------|--------|--------|--------|--------
+
+  Done.
+
+  To start, run 'npm start' or 'docker build ./ && docker run ./'
+
+--------|--------|--------|--------|--------|--------|--------\n"
