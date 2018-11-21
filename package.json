@@ -16,7 +16,8 @@
     "test:watch": "npm test -- --watch",
     "gen-mockapi-data": "node ./src/api/generateMockData.js",
     "prestart-mockapi": "npm run gen-mockapi-data",
-    "start-mockapi": "json-server --watch ./src/api/db.json --port 3001"
+    "start-mockapi": "json-server --watch ./src/api/db.json --port 3001",
+    "new": "bash ./codekite.sh"
   },
   "jest": {
     "moduleNameMapper": {
@@ -74,7 +75,7 @@
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^2.1.5",
     "webpack-dev-middleware": "^3.1.3",
-    "webpack-dev-server": "^3.1.5",
+    "webpack-dev-server": "^3.1.10",
     "webpack-serve": "^2.0.2"
   },
   "dependencies": {
