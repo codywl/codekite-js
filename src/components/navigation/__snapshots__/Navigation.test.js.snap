@@ -2,18 +2,18 @@
 
 exports[`renders without errors 1`] = `
 <ul
-  className="Navigation__StyledNav-JtFIe fPtGrH"
+  className="css-1hv5ft3"
 >
   <a
     aria-current={null}
-    className="Navigation__NavIcon-hVYKSJ bAHkMy"
+    className="css-xd43de"
     href="/home"
     onClick={[Function]}
   />
   <div>
     <a
       aria-current={null}
-      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      className="css-1iavrx4"
       href="/home"
       onClick={[Function]}
     >
@@ -21,7 +21,7 @@ exports[`renders without errors 1`] = `
     </a>
     <a
       aria-current={null}
-      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      className="css-1iavrx4"
       href="/about"
       onClick={[Function]}
     >
@@ -29,7 +29,7 @@ exports[`renders without errors 1`] = `
     </a>
     <a
       aria-current={null}
-      className="Navigation__StyledNavLink-bVhJof iJKEcw"
+      className="css-1iavrx4"
       href="/users"
       onClick={[Function]}
     >
