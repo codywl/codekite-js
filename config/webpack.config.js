@@ -1,18 +1,12 @@
 // Development Webpack Configuration
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
 // Injects script tags pointing to bundle
 const HtmlWebpack = new HtmlWebpackPlugin({
   title: "Codekite Demo (Dev)",
-  template: path.resolve(__dirname, "../src/html/index.tmpl.html")
-});
-
-// Cleans up generated bundles
-const CleanWebpack = new CleanWebpackPlugin(["../dist"], {
-  allowExternal: true
+  template: path.resolve(__dirname, "../src/html/index.tmpl.html"),
 });
 
 const config = {
@@ -22,20 +16,16 @@ const config = {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "[name].bundle.js",
-    publicPath: "/"
+    publicPath: "/",
   },
   devServer: {
     contentBase: path.join(__dirname, "../dist"),
     host: "0.0.0.0",
     port: 9000,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  plugins: [
-    CleanWebpack,
-    HtmlWebpack,
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [HtmlWebpack, new webpack.HotModuleReplacementPlugin()],
   module: {
     rules: [
       {
@@ -43,15 +33,15 @@ const config = {
         use: [
           {
             loader: "style-loader",
-            options: {}
+            options: {},
           },
           {
             loader: "css-loader",
             options: {
-              importLoaders: 1
-            }
-          }
-        ]
+              importLoaders: 1,
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,
@@ -59,18 +49,18 @@ const config = {
           {
             loader: "url-loader",
             options: {
-              limit: 25000
-            }
-          }
-        ]
+              limit: 25000,
+            },
+          },
+        ],
       },
       {
         test: /\b(?!test)(\w+)(?!test)(.js)\b/,
         include: [path.resolve(__dirname, "../src")],
-        loader: "babel-loader"
-      }
-    ]
-  }
+        loader: "babel-loader",
+      },
+    ],
+  },
 };
 
 module.exports = config;

@@ -15,7 +15,7 @@ import Users from "./users/Users";
 import PaneDefault from "./default/Default";
 
 // For App wrapper div styles
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 const AppWrapper = styled("div")`
   font-family: "Roboto Slab", sans-serif;

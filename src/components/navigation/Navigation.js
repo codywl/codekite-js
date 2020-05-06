@@ -6,11 +6,11 @@ import { NavLink } from "react-router-dom";
 // After a lot of research and "consultation" (see: asking other
 // developers), I've arrived at `styled-components` as a replacement for
 // the previous workflow of `css-modules`.
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import Logo from "../../styles/images/codekite-logo.svg";
 
 // Contains the other elements.
-const StyledNav = styled("ul")`
+const StyledNav = styled.ul`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
