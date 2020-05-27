@@ -1,35 +1,61 @@
 #!/bin/bash
 # Author: Cody Welsh <c o d y w (at) protonmail (dot) com>
 
+# order of calling cmd
+declare -i STEP=0
+
+# counts steps
+this_step() {
+  STEP=$((STEP+1))
+  echo "Step $STEP: "
+}
+
+# increment step and echo
+echonum() {
+  this_step && echo "$1"
+}
+
 # ngrok download URL
 NGROK_URL='https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip'
 
-# Check for folder existence
-echo "1 - Checking folder existence.."
+# User input
+printf "\n
+Hello! This script will create a directory for your project, copy the
+content of this project to it, and replace information such as your
+project's name, and your author name.
 
-if [ -e $1 ]; then
-  echo "The directory $1 exists. Exiting.."
+Firstly, provide a directory path. The chosen directory must not exist
+before copying.
+"
+
+read -r newdirectory_path
+
+echonum "Checking folder existence for $newdirectory_path.."
+
+# Check for folder existence
+if [ -e "$newdirectory_path" ]; then
+  echo "The specified directory already appears to exist. Exiting.."
   exit
 fi
 
 # Copy directory structure to specified location under the name
-echo "2 - Creating new project.."
-cp $(dirname $(readlink -f $0)) ./$1 -r
+echonum "Creating new project.."
+cp "$(dirname "$(readlink -f "$0")")" ./"$1" -r
 
 
 # cd to dir
-echo "3 - Switching to project directory.."
-cd ./$1
+echonum "Switching to project directory.."
+cd "./$1" || exit
 
 # Download latest `ngrok` to the folder
-echo "4 - Downloading 'ngrok'.."
+echonum "Downloading 'ngrok'.."
 curl $NGROK_URL > ngrok
 
-echo "5 - installing 'npm' packages.."
+echonum "Installing 'npm' packages.."
 npm install
 
 # Vanity message
-echo "\n
+printf "\n
 --------|--------|--------|--------|--------|--------|--------
 
   Done.
