@@ -38,14 +38,19 @@ if [ -e "$newdirectory_path" ]; then
   exit
 fi
 
+# Get project and new author information
+echo "Please enter your author info ('name <email>', typically):"
+read -r newauthor
+echo "Please enter a project name:"
+read -r newproject
+
 # Copy directory structure to specified location under the name
 echonum "Creating new project.."
-cp "$(dirname "$(readlink -f "$0")")" ./"$1" -r
-
+cp "$(dirname "$(readlink -f "$0")")" ./"$newdirectory_path" -r
 
 # cd to dir
-echonum "Switching to project directory.."
-cd "./$1" || exit
+echonum "Switching to new project directory $newdirectory_path.."
+cd "./$newdirectory_path" || exit
 
 # Download latest `ngrok` to the folder
 echonum "Downloading 'ngrok'.."
@@ -53,6 +58,13 @@ curl $NGROK_URL > ngrok
 
 echonum "Installing 'npm' packages.."
 npm install
+
+# `sed` the user info into package.json
+echonum "Substituting project information.."
+sed -r -i "s/(\"author\": \")(.*\")/\1$newauthor\"/g" package.json
+sed -r -i "s/(\"name\": \")(.*\")/\1$newproject\"/g" package.json
+sed -r -i "s/(\"description\": \")(.*\")/\1\"/g" package.json
+
 
 # Vanity message
 printf "\n
