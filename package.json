@@ -1,14 +1,14 @@
 {
-  "name": "codekite",
+  "name": "codekite-js",
   "version": "1.0.0",
-  "repository": "github.com/CWelshE/codekit-js",
+  "repository": "github.com/CWelshE/codekite-js",
   "description": "Foundational JS project baseline",
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel secure dev-srv lint:watch start-mockapi",
     "build": "webpack --config=./config/webpack.config.prod.js",
     "watch": "webpack --watch --config=./config/webpack.config.js",
-    "secure": "npm audit",
+    "secure": "npm audit --production",
     "ngrok": "./ngrok http -auth='someuser:somepass' 80",
     "dev-srv": "webpack-dev-server --config=./config/webpack.config.js",
     "lint": "esw webpack.config.*, src",
